@@ -1,5 +1,5 @@
 window.onpopstate = function(event) {
-    console.log(event.stage.section);
+    console.log(event.state.section);
     showSection(event.state.section);
 }
 
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         button.onclick = function() {
             const section = this.dataset.section;
             history.pushState({section: section}, "", `section${section}`);
-            showSection(this.dataset.section);
+            showSection(section);
         }
     })
 })
