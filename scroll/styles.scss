@@ -1,0 +1,16 @@
+$background1: springgreen;
+$normal-color: blue;
+%normal-font {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-style: bold;
+}
+body {
+    background-color: $background1;
+    color: $normal-color;
+    @extend %normal-font;
+    padding-bottom: 50px;
+}
+.post {
+    background-color: cyan;
+}
