@@ -1,0 +1,22 @@
+@keyframes grow {
+    0% {
+        font-size: 20px;
+        left: 0%;
+    }
+    50% {
+        font-size: 100px;
+        left: 50%;
+    }
+    100% {
+        font-size: 50px;
+        left: 0%;
+    }
+}
+
+h1 {
+    position: relative;
+    animation-name: grow;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
