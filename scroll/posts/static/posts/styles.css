@@ -1,14 +1,18 @@
 body {
-  font-family: sans-serif;
+  font-family: sans-serif, arial;
   font-size: 18px;
-  font-style: bold; }
+  font-style: italic;
+  font-weight: bold; }
+
+h1 {
+  font-family: arial;
+  font-size: 28px;
+  font-weight: bold; }
 
 body {
-  background-color: springgreen;
-  color: blue;
-  padding-bottom: 50px; }
+  color: blue; }
 
-.post {
-  background-color: cyan; }
+h1 {
+  color: green; }
 
 /*# sourceMappingURL=styles.css.map */

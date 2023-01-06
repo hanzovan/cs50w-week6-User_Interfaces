@@ -1,55 +1,46 @@
-// Start with first post
 let counter = 1;
-
-// Load posts 20 at a time
 const quantity = 20;
-
-// when DOM loads, render the first 20 posts
-document.addEventListener('DOMContentLoaded', function() {
-    load();
-});
-
-
-// Prevent function to execute multiple times
-let lastfire = 0;
-let delay = 1000;
-// If scrolled to bottom, load the next 20 posts
-window.onscroll = function() {
-    if (lastfire >= (Date.now() - delay)){
-        return;
-    }
-    lastfire = Date.now();
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {       
-        
-        // Wait before load
-        setTimeout(load, 50);
-    }
-}
-
-// Load next set of posts
 function load() {
-
-    // Set start and end post numbers, and update counter
-    const start = counter;
-    const end = start + quantity - 1;
+    start = counter;
+    end = start + quantity - 1;
     counter = end + 1;
-
-    // Get new posts and add posts
-    fetch(`/posts?start=${start}&${end}`)
+    fetch(`posts?start=${start}&end=${end}`)
     .then(response => response.json())
     .then(data => {
-        data.posts.forEach(add_post);
+        data.posts.forEach(post => {
+            let p = document.createElement('div');
+            p.className = 'post';
+            p.innerHTML = post;
+            document.querySelector('#posts').append(p);
+        })
     })
 }
 
-// Add a new post with given contents to DOM
-function add_post(contents) {
 
-    // Create new post
-    const post = document.createElement('div');
-    post.className = 'post';
-    post.innerHTML = contents;
+document.addEventListener('DOMContentLoaded', function() {
+    // Load after 1 second delay
+    setTimeout(load, 1000);
+})
 
-    // Add post to DOM
-    document.querySelector('#posts').append(post);
+// When user scroll to the bottom of the body, load
+// But don't allow multiple fire for load function
+
+// Defire last time the function load call
+let lastfire = 0;
+
+// Define the delay time that won't allow function load to call again in that duration
+let delay = 1000;
+
+window.onscroll = function() {
+    // If user scroll to bottom in delay duration
+    if ((Date.now() - lastfire) < delay) {
+        return;
+    }
+    // If user scroll after delay duration
+    if ((window.innerHeight + scrollY) >= document.body.offsetHeight) {
+        // Load after 1s delay
+        setTimeout(load, 1000);
+    }
+    // Set lastfire to the current time
+    lastfire = Date.now();
 }

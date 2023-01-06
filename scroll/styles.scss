@@ -1,16 +1,21 @@
-$background1: springgreen;
-$normal-color: blue;
-%normal-font {
-    font-family: sans-serif;
+$color: blue;
+$big-text-color: green;
+%normal-text {
+    font-family: sans-serif, arial;
     font-size: 18px;
-    font-style: bold;
+    font-style: italic;
+    font-weight: bold;
+}
+%big-text {
+    font-family: arial;
+    font-size: 28px;
+    font-weight: bold;
 }
 body {
-    background-color: $background1;
-    color: $normal-color;
-    @extend %normal-font;
-    padding-bottom: 50px;
+    color: $color;
+    @extend %normal-text;
 }
-.post {
-    background-color: cyan;
+h1 {
+    color: $big-text-color;
+    @extend %big-text;
 }
