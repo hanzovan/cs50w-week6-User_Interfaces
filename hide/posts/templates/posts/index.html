@@ -1,18 +1,21 @@
-{% extends "posts/layout.html" %}
+{% extends 'posts/layout.html' %}
 {% load static %}
 {% block title %}
 
-    index
-
-{% endblock %}
-{% block main %}
-    <div id="posts">
-
-    </div>
+    Index
 
 {% endblock %}
 {% block script %}
 
     <script src="{% static 'posts/index.js' %}"></script>
+
+{% endblock %}
+{% block main %}
+
+    <h1>Hide</h1>
+
+    <div id="posts">
+
+    </div>
 
 {% endblock %}

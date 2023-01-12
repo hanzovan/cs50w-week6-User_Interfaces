@@ -1,49 +1,55 @@
-$normal-color: blue;
+$normal-text-color: blue;
+$big-text-color: brown;
 %normal-font {
+    font-size: 18px;
     font-family: sans-serif;
-    font-size: 16px;
+    font-weight: bold;
+}
+%big-font {
+    font-size: 24px;
+    font-family: sans-serif;
     font-weight: bold;
 }
 body {
-    color: $normal-color;
     @extend %normal-font;
+    color: $normal-text-color;
 }
-
+h1 {
+    @extend %big-font;
+    color: $big-text-color;
+}
+.post {
+    background-color: springgreen;
+    padding: 20px;
+    margin-bottom: 10px;
+    animation-name: hide;
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+    animation-play-state: paused;
+}
+.hide {
+    float: right;
+}
 @keyframes hide {
     0% {
         opacity: 1;
         height: 100%;
         line-height: 100%;
-        padding: 20px;
         margin-bottom: 10px;
+        padding: 20px;
     }
     75% {
         opacity: 0;
         height: 100%;
         line-height: 100%;
-        padding: 20px;
         margin-bottom: 10px;
+        padding: 20px;
     }
     100% {
         opacity: 0;
-        height: 0px;
-        line-height: 0px;
-        padding: 0px;
-        margin-bottom: 0px;
+        height: 0;
+        line-height: 0;
+        margin-bottom: 0;
+        padding: 0;
     }
-}
-.hide {
-    float: right;
-}
-.post {
-    background-color: #77dd11;
-    padding: 20px;
-    margin-bottom: 10px;
-    animation-name: hide;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-    animation-play-state: paused;
-}
-body {
-    padding-bottom: 50px;
 }
